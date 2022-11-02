@@ -68,7 +68,7 @@ export class OfertaService {
                 //simulando processamento assíncrono
                 setTimeout(() => {
                     resolve(this.ofertas);                    
-                }, 3000);
+                }, 2000);
             } else {
                 //retorna um objeto literal com o erro que quiser.
                 reject({codigo_erro: 403, mensagem_erro: 'Forbidden'})
@@ -80,7 +80,19 @@ export class OfertaService {
             
             //Ainda assim retorna uma Promise com o array de ofertas
             return ofertas;
-        });
-        //Aqui poderia ter mais then() cascateados para processamento.
+        })
+        .then((ofertas : Array<Oferta>) => {
+            //Aqui poderia ser feita uma segunda tratativa
+            return new Promise((resolve2, reject2) => {
+                setTimeout(() => {
+                    resolve2(ofertas)
+                }, 1500);
+            })
+        })
+        .then((ofertas: Array<Oferta>) => {
+            //Terceiro processamento, executado após 1,5s porque estava aguardando
+            //a promise acima ser resolvida.
+            return ofertas;
+        })
     }
 }
