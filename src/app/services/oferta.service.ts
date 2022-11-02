@@ -73,6 +73,14 @@ export class OfertaService {
                 //retorna um objeto literal com o erro que quiser.
                 reject({codigo_erro: 403, mensagem_erro: 'Forbidden'})
             }
+        })
+        .then((ofertas : Array<Oferta>) => {
+            //exemplo de como pode ser feita uma trataitiva em encadeamento
+            console.log("primeiro then");
+            
+            //Ainda assim retorna uma Promise com o array de ofertas
+            return ofertas;
         });
+        //Aqui poderia ter mais then() cascateados para processamento.
     }
 }
