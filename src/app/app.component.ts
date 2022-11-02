@@ -13,6 +13,6 @@ export class AppComponent implements OnInit {
   constructor(private ofertaService : OfertaService){}
 
   ngOnInit(){
-    console.log(this.ofertaService.getOfertas());
+    
   }
 }

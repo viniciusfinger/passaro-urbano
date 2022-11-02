@@ -56,4 +56,23 @@ export class OfertaService {
     public getOfertas() : Array<Oferta> {
         return this.ofertas;
     }
+
+    public getOfertasPromise() : Promise<Array<Oferta>> {
+        //O objeto promise espera uma ação de callback (resolve ou reject)
+        return new Promise((resolve, reject) => {
+            
+            //Simulando que a requisição deu errado.
+            let deu_certo = true;
+
+            if (deu_certo){
+                //simulando processamento assíncrono
+                setTimeout(() => {
+                    resolve(this.ofertas);                    
+                }, 3000);
+            } else {
+                //retorna um objeto literal com o erro que quiser.
+                reject({codigo_erro: 403, mensagem_erro: 'Forbidden'})
+            }
+        });
+    }
 }
