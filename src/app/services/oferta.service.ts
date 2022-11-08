@@ -14,4 +14,10 @@ export class OfertaService {
             .toPromise()
             .then((resposta : any) => resposta);
     } 
+
+    public getOfertasDestaque() : Promise<Array<Oferta>> {
+        return this.httpClient.get("http://localhost:3000/ofertas?destaque=true")
+            .toPromise()
+            .then((resposta : any) => resposta);
+    }
 }

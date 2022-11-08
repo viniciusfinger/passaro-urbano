@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   constructor(private ofertaService : OfertaService) { }
 
   ngOnInit() {
-    this.ofertaService.getOfertas()
+    this.ofertaService.getOfertasDestaque()
       .then((ofertas : Array<Oferta>) => {this.ofertas = ofertas})
       .catch((err: any) => console.log(err));
   }
