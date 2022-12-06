@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve && json-server --watch banco-de-dados.json",
+    "start": "ng serve && npm run fake-api",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "fake-api" : "json-server --watch banco-de-dados.json"
   },
   "private": true,
   "dependencies": {
